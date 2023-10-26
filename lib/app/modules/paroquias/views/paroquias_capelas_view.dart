@@ -11,10 +11,10 @@ class ParoquiasCapelasView extends GetView {
 
   @override
   Widget build(BuildContext context) {
-    List doc = paroquiasController.paroquiaAtiva.capelas;
+    List doc = paroquiasController.paroquiaAtiva.capelas!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(paroquiasController.paroquiaAtiva.nome),
+        title: Text(paroquiasController.paroquiaAtiva.nome!),
       ),
       body: Padding(
         padding: EdgeInsets.only(left: 10, right: 10),

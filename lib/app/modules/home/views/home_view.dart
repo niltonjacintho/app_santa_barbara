@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:app2021/app/controllers/auth_controller.dart';
 import 'package:app2021/app/controllers/utils_controller.dart';
 import 'package:app2021/app/modules/artigos/controllers/artigos_controller.dart';
@@ -85,14 +87,14 @@ class HomeView extends GetView<HomeController> {
                       leading: CircleAvatar(
                         radius: 20,
                         child: Image.asset(
-                          controller.listaMenu[index].image,
+                          controller.listaMenu[index].image!,
                           fit: BoxFit.fill,
                         ), // NetworkImage('https://imagens.canaltech.com.br/empresas/690.400.jpg'),
                       ),
 
                       //Image.asset(controller.listaMenu[index].image),
                       title: Text(
-                        controller.listaMenu[index].titulo,
+                        controller.listaMenu[index].titulo!,
                         style: TextStyle(
                           fontSize: 36,
                           color: index == controller.opcaoMenu.value
@@ -101,7 +103,7 @@ class HomeView extends GetView<HomeController> {
                         ),
                       ),
                       subtitle: Text(
-                        controller.listaMenu[index].subtitulo,
+                        controller.listaMenu[index].subtitulo!,
                         style: TextStyle(
                           color: index == controller.opcaoMenu.value
                               ? Colors.white
@@ -119,7 +121,7 @@ class HomeView extends GetView<HomeController> {
             ),
             onTap: () => {
               print('vai chamar'),
-              Get.toNamed(controller.listaMenu[_index].destino),
+              Get.toNamed(controller.listaMenu[_index].destino!),
             },
           ),
         ),

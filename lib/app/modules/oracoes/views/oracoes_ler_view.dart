@@ -15,7 +15,7 @@ class OracoesLerView extends GetView {
     //     double.parse(GetStorage().read('tamanhoFonte').toString()) ?? 10.0;
     return Scaffold(
       appBar: AppBar(
-        title: Text(controller.oracao.titulo),
+        title: Text(controller.oracao.titulo!),
         actions: <Widget>[
           ElevatedButton(
        //     color: Colors.transparent,
@@ -53,7 +53,7 @@ class OracoesLerView extends GetView {
           children: <Widget>[
             Obx(
               () => Text(
-                controller.oracao.texto,
+                controller.oracao.texto!,
                 style: TextStyle(fontSize: utilsController.tamanhoFonte.value),
               ),
             ),

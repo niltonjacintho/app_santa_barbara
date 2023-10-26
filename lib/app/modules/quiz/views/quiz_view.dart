@@ -135,7 +135,7 @@ class QuizView extends GetView<QuizController> {
                                         child: Text(
                                           quizController
                                                   .getTopicoById(index)
-                                                  .nome +
+                                                  .nome! +
                                               '\n\nVamos la!!',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(

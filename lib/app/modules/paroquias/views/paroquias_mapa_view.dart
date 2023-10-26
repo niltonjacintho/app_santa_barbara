@@ -15,8 +15,8 @@ class ParoquiasMapaView extends GetView {
     mapController = controler;
     final Marker marker = Marker(
       markerId: MarkerId("1"),
-      position: LatLng(paroquiasController.paroquiaAtiva.lat,
-          paroquiasController.paroquiaAtiva.long),
+      position: LatLng(paroquiasController.paroquiaAtiva.lat!,
+          paroquiasController.paroquiaAtiva.long!),
       infoWindow: InfoWindow(
         title: paroquiasController.paroquiaAtiva.nome,
         snippet: paroquiasController.paroquiaAtiva.paroco,
@@ -32,7 +32,7 @@ class ParoquiasMapaView extends GetView {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(paroquiasController.paroquiaAtiva.nome),
+        title: Text(paroquiasController.paroquiaAtiva.nome!),
       ),
       body: Obx(
         () => GoogleMap(
@@ -45,8 +45,8 @@ class ParoquiasMapaView extends GetView {
           myLocationButtonEnabled: true,
           myLocationEnabled: true,
           initialCameraPosition: CameraPosition(
-              target: LatLng(paroquiasController.paroquiaAtiva.lat,
-                  paroquiasController.paroquiaAtiva.long),
+              target: LatLng(paroquiasController.paroquiaAtiva.lat!,
+                  paroquiasController.paroquiaAtiva.long!),
               zoom: 16.5),
           markers: markers,
         ),

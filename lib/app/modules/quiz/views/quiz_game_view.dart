@@ -61,7 +61,7 @@ class QuizGameViewPage extends GetView<QuizController> {
                   return Column(
                     children: <Widget>[
                       Text(
-                        quizController.topicoAtual.nome,
+                        quizController.topicoAtual.nome!,
                         style: TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.w500,

@@ -64,7 +64,7 @@ class ParoquiasController extends GetxController {
         capela.telefone = element['telefone'];
         capela.lat = element['lat'];
         capela.long = element['long'];
-        p.capelas.add(capela);
+        p.capelas!.add(capela);
       });
       paroquiaAtiva = p;
     } catch (e) {
@@ -109,7 +109,7 @@ class ParoquiasController extends GetxController {
             capela.telefone = element['telefone'];
             capela.lat = element['lat'];
             capela.long = element['long'];
-            p.capelas.add(capela);
+            p.capelas!.add(capela);
           });
           lista.add(p);
         } catch (e) {
@@ -150,7 +150,7 @@ class ParoquiasController extends GetxController {
               c.long = item['long'];
               c.nome = item['nome'];
               c.telefone = item['telefone'];
-              igrejaObj.capelas.add(c);
+              igrejaObj.capelas!.add(c);
             }
             // igrejaObj.capelas = element
             //     .get('capelas']
@@ -171,7 +171,7 @@ class ParoquiasController extends GetxController {
     for (int i = 0; i <= _lista.length - 1; i++) {
       element = lista[i];
       try {
-        placemark = await locationFromAddress(element.endereco);
+        placemark = await locationFromAddress(element.endereco!);
         element.lat = placemark[0].latitude;
         element.long = placemark[0].longitude;
         lista[i] = element;

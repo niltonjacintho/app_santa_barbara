@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 import 'package:app2021/app/modules/artigos/controllers/artigos_controller.dart';
 
 class ArtigosView extends StatefulWidget {
-  final String title;
-  const ArtigosView({required Key key, this.title = "Login"}) : super(key: key);
+  final String? title;
+  const ArtigosView({ this.title = "Login"});
 
   @override
   _ArtigosViewState createState() => _ArtigosViewState();

@@ -70,13 +70,13 @@ class QuizDb {
 }
 
 class BaseTopicos {
-  String id = '';
-  String nome = '';
-  Color cor = Colors.black;
+  String? id = '';
+  String? nome = '';
+  Color? cor;
 
-  get getIdBase => nome.trim().replaceAll(' ', '').toLowerCase();
+  get getIdBase => nome!.trim().replaceAll(' ', '').toLowerCase();
 
-  BaseTopicos({required this.id, required this.nome, required this.cor});
+  BaseTopicos({ this.id,  this.nome,  this.cor});
 
   BaseTopicos.fromJson(Map<String, dynamic> json) {
     id = json['id'];

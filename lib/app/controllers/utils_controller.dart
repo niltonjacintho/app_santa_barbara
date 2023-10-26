@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -9,6 +11,7 @@ import 'package:app2021/app/controllers/grupos_controller.dart';
 import 'package:get_storage/get_storage.dart';
 
 class UtilsController extends GetxController {
+  static const estilo = TextStyle(color: Colors.amber);
   RxDouble tamanhoFonte = 0.0.obs;
   final count = 0.obs;
   final box = GetStorage();
@@ -32,11 +35,11 @@ class UtilsController extends GetxController {
 
   decTamanhoFonte() {
     tamanhoFonte.value--;
-    tamanhoFonte = tamanhoFonte > 12 ? 12 : tamanhoFonte;
+    tamanhoFonte.value = tamanhoFonte > 12 ? 12 : tamanhoFonte.value;
     box.write('tamanhoFonte', tamanhoFonte);
   }
 
-  Color cor;
+  late Color cor;
   GruposController gruposService = Get.put(GruposController());
 
   Color getColorRandom() {
@@ -67,7 +70,7 @@ class UtilsController extends GetxController {
 
   //int grupoAvisos = 100;
 
-  Grupos grupoAtivo;
+  late Grupos grupoAtivo;
 
   double get espacoPadrao => 15;
 
@@ -147,7 +150,8 @@ class UtilsController extends GetxController {
   }
 
   Align textoEsquerda(String texto,
-      {TextStyle stilo, Alignment alinhamento = Alignment.centerLeft}) {
+      {TextStyle stilo = estilo,
+      Alignment alinhamento = Alignment.centerLeft}) {
     stilo = stilo == null ? stBody : stilo;
     return Align(
       alignment: alinhamento,
@@ -160,7 +164,7 @@ class UtilsController extends GetxController {
   }
 
   List<DropdownMenuItem> getCategoryList() {
-    List<DropdownMenuItem> result = new List<DropdownMenuItem>();
+    List<DropdownMenuItem> result = new List<DropdownMenuItem>.empty();
     result.add(new DropdownMenuItem(value: 100, child: Text('Avisos')));
     result.add(new DropdownMenuItem(value: 200, child: Text('Eventos')));
     result.add(

@@ -88,7 +88,7 @@ class _QuizTopViewState extends State<QuizTopView> {
                 },
                 child: Center(
                   child: Text(
-                    '${quizController.listaTop[0].nome.substring(0, quizController.listaTop[0].nome.indexOf(' ', 2))}',
+                    '${quizController.listaTop[0].nome!.substring(0, quizController.listaTop[0].nome!.indexOf(' ', 2))}',
                     style: TextStyle(
                         fontSize: 30,
                         color: Colors.blue[900],
@@ -117,7 +117,7 @@ class _QuizTopViewState extends State<QuizTopView> {
                   child: Center(
                     //   color: Colors.yellow[900],
                     child: Text(
-                      '${quizController.listaTop[1].nome.substring(0, quizController.listaTop[1].nome.indexOf(' ', 2))}',
+                      '${quizController.listaTop[1].nome!.substring(0, quizController.listaTop[1].nome!.indexOf(' ', 2))}',
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ),
@@ -143,7 +143,7 @@ class _QuizTopViewState extends State<QuizTopView> {
                   ),
                   child: Center(
                     child: Text(
-                      '${quizController.listaTop[2].nome.substring(0, quizController.listaTop[2].nome.indexOf(' ', 2))}',
+                      '${quizController.listaTop[2].nome!.substring(0, quizController.listaTop[2].nome!.indexOf(' ', 2))}',
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                   ),

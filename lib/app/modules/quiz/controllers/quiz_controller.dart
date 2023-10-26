@@ -360,15 +360,15 @@ class QuizController extends GetxController {
         html = html.substring(html.indexOf('<h3>'));
         p.pergunta = html.substring(4, html.indexOf('</h3'));
         try {
-          p.pergunta = p.pergunta
-              .substring(p.pergunta.indexOf(new RegExp(r'[A-Z][a-z]')))
+          p.pergunta = p.pergunta!
+              .substring(p.pergunta!.indexOf(new RegExp(r'[A-Z][a-z]')))
               .trim();
         } catch (e) {
           print(null);
         }
-        if (p.pergunta.indexOf('Qual o nome do monte onde') != -1)
+        if (p.pergunta!.indexOf('Qual o nome do monte onde') != -1)
           print('parar aqui');
-        p.idTopico = topico.id.trim().replaceAll(' ', '').toLowerCase();
+        p.idTopico = topico.id!.trim().replaceAll(' ', '').toLowerCase();
         html = html.substring(html.indexOf('</h3') + 5);
         // Respostas
         List<String> tempRespostas = html
@@ -409,7 +409,7 @@ class QuizController extends GetxController {
             pr.respostatexto = element;
             pr.sequencia = i;
             pr.respostacerta = element.trim().toLowerCase() == r.toLowerCase();
-            p.perguntasRespostas.add(pr);
+            p.perguntasRespostas!.add(pr);
             i++;
           }
         });
@@ -446,7 +446,7 @@ class QuizController extends GetxController {
     desafio.desafioPerguntas = [];
     if (listaPerguntas.length > 0) {
       listaPerguntas.forEach((element) {
-        desafio.desafioPerguntas
+        desafio.desafioPerguntas!
             .add(new DesafioPerguntas(id: element.id, acertou: false));
       });
     }

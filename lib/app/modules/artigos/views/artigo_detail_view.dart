@@ -39,17 +39,17 @@ class ArtigoDetailView extends GetView {
           children: [
             controller.docAtivo.image != ""
                 ? Image.network(
-                    controller.docAtivo.image,
+                    controller.docAtivo.image!,
                     fit: BoxFit.fill,
                     alignment: Alignment.topCenter,
                   )
                 : Text(''),
             Text(
-              controller.docAtivo.titulo,
+              controller.docAtivo.titulo!,
               style: stylesController.titulo,
             ),
             Text(
-              controller.docAtivo.subtitulo,
+              controller.docAtivo.subtitulo!,
               style: stylesController.subTitulo,
             ),
             Divider(
@@ -59,7 +59,7 @@ class ArtigoDetailView extends GetView {
             ),
             Obx(
               () => Text(
-                controller.docAtivo.texto,
+                controller.docAtivo.texto!,
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: utilsController.tamanhoFonte.value,
