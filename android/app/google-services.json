@@ -1,0 +1,122 @@
+{
+  "project_info": {
+    "project_number": "999243580674",
+    "firebase_url": "https://paroquia.firebaseio.com",
+    "project_id": "project-2297216869628270192",
+    "storage_bucket": "project-2297216869628270192.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999243580674:android:72ebfe618a7c42da352e1b",
+        "android_client_info": {
+          "package_name": "com.error.org.teste4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999243580674-rnuapil7shafg0c0bsn9shj03ol5i72i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.error.org.teste4",
+            "certificate_hash": "24929a989cf4716c62debaf654e421a563d77618"
+          }
+        },
+        {
+          "client_id": "999243580674-mgp4rm839m00f87p4m0m08utgoka9gnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZPONCMu1ivn11B2Gy1WS4HNGF54pR-Gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110131970568794959687",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999243580674:android:cfd96b96b63bd322352e1b",
+        "android_client_info": {
+          "package_name": "com.santabarbara.org.app_santa_barbara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999243580674-vjtvcd7gsvbq5b832u61ejrgtl91prm0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.santabarbara.org.app_santa_barbara",
+            "certificate_hash": "24929a989cf4716c62debaf654e421a563d77618"
+          }
+        },
+        {
+          "client_id": "999243580674-mgp4rm839m00f87p4m0m08utgoka9gnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZPONCMu1ivn11B2Gy1WS4HNGF54pR-Gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110131970568794959687",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999243580674:android:9a540b373e60b419352e1b",
+        "android_client_info": {
+          "package_name": "com.santabarbararm.org.app2021"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999243580674-adp1ef2eckbjm8eobmg1q21g7fdg1jin.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.santabarbararm.org.app2021",
+            "certificate_hash": "8c4127e561a6f2724c4718ec9db16936c760c9b5"
+          }
+        },
+        {
+          "client_id": "999243580674-mgp4rm839m00f87p4m0m08utgoka9gnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZPONCMu1ivn11B2Gy1WS4HNGF54pR-Gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110131970568794959687",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

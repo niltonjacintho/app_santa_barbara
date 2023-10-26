@@ -1,0 +1,33 @@
+quizDb:
+  baseTopicos:
+    - id:
+      nome:
+  quiz:
+    - id:
+      titulo:
+      quizTopico:
+        - idTopico:
+      recomendacoes:
+      qtdperguntas:
+      quizPerguntas:
+        - id:
+  desafios:
+    - id:
+      idQuiz:
+      finalizado:
+      data:
+      email:
+      acertos:
+      tempo:
+      desafioPerguntas:
+        - id:
+          acertou:
+  basePerguntas:
+    id:
+    idTopico:
+    pergunta:
+    perguntasRespostas:
+      - id:
+        sequencia:
+        respostacerta:
+        respostatexto:
