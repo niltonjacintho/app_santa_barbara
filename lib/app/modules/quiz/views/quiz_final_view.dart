@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:app2021/app/modules/quiz/controllers/quiz_controller.dart';
-import 'package:shape_of_view/shape_of_view.dart';
+
 
 class QuizFinalPage extends StatefulWidget {
   final String title;

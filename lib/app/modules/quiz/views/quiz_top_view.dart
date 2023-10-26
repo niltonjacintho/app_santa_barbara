@@ -3,12 +3,12 @@ import 'package:app2021/app/modules/quiz/controllers/quiz_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:shape_of_view/shape_of_view.dart';
+import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 //import 'quiz_top_controller.dart';
 
 class QuizTopView extends StatefulWidget {
   final String title;
-  const QuizTopView({Key key, this.title = "QuizTop"}) : super(key: key);
+  const QuizTopView({required Key key, this.title = "QuizTop"}) : super(key: key);
 
   @override
   _QuizTopViewState createState() => _QuizTopViewState();
@@ -19,7 +19,7 @@ class _QuizTopViewState extends State<QuizTopView> {
 
  // QuizTopController quizTopController = Modular.get();
   QuizController quizController = Get.put(QuizController());
-  Future<List<QuizRankModel>> _lista;
+  late Future<List<QuizRankModel>> _lista;
 
   void initState() {
     super.initState();

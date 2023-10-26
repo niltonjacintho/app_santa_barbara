@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:app2021/app/controllers/utils_controller.dart';
 import 'package:app2021/app/modules/quiz/views/quiz_game_view.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +79,7 @@ class QuizView extends GetView<QuizController> {
                 ],
                 radius: 125,
                 position: CircularTextPosition.inside,
-                backgroundPaint: Paint()..color = Colors.yellow[50],
+                backgroundPaint: Paint()..color = Colors.yellow[50]!,
               ),
             ),
             SizedBox(
@@ -105,10 +107,8 @@ class QuizView extends GetView<QuizController> {
                       switch (snapshot.connectionState) {
                         case ConnectionState.none:
                           return new Text("Data is not fetched");
-                          break;
                         case ConnectionState.waiting:
                           return new CircularProgressIndicator();
-                          break;
                         case ConnectionState.done:
                           if (snapshot.hasError) {
                             return new Text("fetch error");
@@ -154,7 +154,6 @@ class QuizView extends GetView<QuizController> {
                               ),
                             );
                           }
-                          break;
                         // }
                         default:
                           return Text("connection is just active");

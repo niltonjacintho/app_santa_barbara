@@ -25,7 +25,7 @@ dependencies:
   firebase_analytics: ^10.6.2
   firebase_storage_web: ^3.3.9
 
-  rflutter_alert: ^2.0.2
+  rflutter_alert: ^2.0.7
 
   # flutter_facebook_auth: ^3.3.2+2
   provider: ^5.0.0

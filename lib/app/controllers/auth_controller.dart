@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:app2021/app/modules/home/views/home_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -17,14 +19,14 @@ class AuthController extends GetxController {
   void onClose() {}
 
   // bool _checking = true;
-  UserCredential user;
-  GoogleSignIn userGoogle;
+  late UserCredential user;
+  late GoogleSignIn userGoogle;
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']); //.signIn();
   setuserGoogle(GoogleSignIn value) => userGoogle = value;
 
   GoogleSignIn get getuserGoogle => userGoogle;
 
-  UserCredential userFace;
+  late UserCredential userFace;
 
   setUser(UserCredential value) => user = value;
 
@@ -35,7 +37,7 @@ class AuthController extends GetxController {
       // final GoogleSignInAuthentication googleAuth =
       await _googleSignIn.signIn();
       //    googleUser.authentication;
-      final GoogleAuthCredential googleAuthCredential =
+      final OAuthCredential googleAuthCredential =
           GoogleAuthProvider.credential(
               //   accessToken: _googleSignIn.,
               // idToken: googleAuth.idToken,
@@ -45,7 +47,7 @@ class AuthController extends GetxController {
       if (userCredential?.user != null) {
         user = userCredential;
       } else {
-        user = null;
+        //user = null;
       }
     } catch (e) {
       print(e);
@@ -53,11 +55,11 @@ class AuthController extends GetxController {
   }
 
   Future loginWithFacebook() async {
-    userFace = await signInWithFacebook();
+    userFace = (await signInWithFacebook()) as UserCredential;
     // _authrepository.getFacebookLogin();
   }
 
-  Future<UserCredential> signInWithFacebook() async {
+  Future<Map> signInWithFacebook() async {
     // // Trigger the sign-in flow
     // AccessToken result;
     // await FacebookAuth.instance.login().then(
@@ -77,6 +79,7 @@ class AuthController extends GetxController {
     //   print(e);
     // }
     // return ret;
+    return {};
   }
 
   // Future<void> _checkIfIsLogged() async {
@@ -101,18 +104,17 @@ class AuthController extends GetxController {
   FirebaseAuth _auth = FirebaseAuth.instance;
   Future google_signIn() async {
     print('VAI LOGAR --');
-    final GoogleSignInAccount googleUser = await googleSignIn.signIn();
+    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
     print(3);
     print(GoogleSignInAccount);
     print(
       'passou',
     ); //calling signIn method // this will open a dialog pop where user can select his email id to signin to the app
     final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
+        await googleUser!.authentication;
     final AuthCredential credential = GoogleAuthProvider.credential(
         idToken: googleAuth.idToken, //create a login credential
         accessToken: googleAuth.accessToken);
-    user = null;
     user = await _auth.signInWithCredential(credential);
     // UserCredential u = (await _auth.signInWithCredential(credential).then(
     //       (value) => return value, //googleUser = user;

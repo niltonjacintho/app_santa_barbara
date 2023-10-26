@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:app2021/app/model/grupos_model.dart';
@@ -9,7 +11,9 @@ class GruposController extends GetxController {
   List<Grupos> _lista = [];
 
   @override
-  void onInit() {}
+  void onInit() {
+    super.onInit();
+  }
 
   @override
   void onReady() {}
