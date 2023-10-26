@@ -26,7 +26,7 @@ class QuizGameViewPage extends GetView<QuizController> {
   final CountDownController _controller = CountDownController();
   @override
   Widget build(BuildContext context) {
-    quizController.initQuiz();
+    quizController.initQuiz(tempo: 0);
     //  quizController.startCountdown();
     //  int randon = 0;
     return Scaffold(
@@ -141,6 +141,7 @@ class QuizGameViewPage extends GetView<QuizController> {
   }
 
   Widget listarRespostas(BuildContext context, List snapshot, int size) {
+    Key key = ValueKey('');
     return Expanded(
       // child: Obx(
       //   () =>
@@ -181,7 +182,7 @@ class QuizGameViewPage extends GetView<QuizController> {
                               quizController.stopCountdown();
                               await quizController.salvarResultado();
                               Navigator.of(context).pop();
-                              Get.to(() => QuizFinalPage());
+                              Get.to(() => QuizFinalPage(key: key,));
                               quizController.tempoRestante.value =
                                   int.parse(_controller.getTime());
                               //  Navigator.of(context).pop();

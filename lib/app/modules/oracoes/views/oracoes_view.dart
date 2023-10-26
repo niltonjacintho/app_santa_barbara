@@ -49,7 +49,7 @@ class OracoesView extends GetView<OracoesController> {
             ),
             StreamBuilder<QuerySnapshot>(
               stream: oracoesComunsController.getOracoes(''),
-              builder: (context, snapshot) {
+              builder: (context, AsyncSnapshot snapshot) {
                 return SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {

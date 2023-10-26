@@ -1,14 +1,14 @@
 class VelaModel {
-  String id;
-  DateTime data;
-  String intensao;
-  int minutosrestantes;
-  String destinatario;
-  String solicitanteemail;
-  String solicitantenome;
-  String texto;
-  DateTime dataInclusao;
-  DateTime dataAlteracao;
+  String? id;
+  DateTime? data;
+  String? intensao;
+  int? minutosrestantes;
+  String? destinatario;
+  String? solicitanteemail;
+  String? solicitantenome;
+  String? texto;
+  DateTime? dataInclusao;
+  DateTime? dataAlteracao;
 
   VelaModel(
       {this.id,

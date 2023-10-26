@@ -1,7 +1,7 @@
 class ComentariosModel {
-  String usuario;
-  DateTime data;
-  String texto;
+  String? usuario;
+  DateTime? data;
+  String? texto;
 
   ComentariosModel({this.usuario, this.data, this.texto});
 

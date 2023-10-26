@@ -2,21 +2,21 @@ import 'package:app2021/app/model/comentarios_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ArtigosModel {
-  String documentID;
-  bool ativo;
-  String categoria;
-  String titulo;
-  String subtitulo;
-  String texto;
-  DateTime dataCriacao;
-  String autorAutor;
-  String evento;
-  String image;
-  String video;
-  String audio;
-  DateTime dataValidade;
-  int visualizacoes;
-  List<ComentariosModel> comentarios;
+  String? documentID;
+  bool? ativo;
+  String? categoria;
+  String? titulo;
+  String? subtitulo;
+  String? texto;
+  DateTime? dataCriacao;
+  String? autorAutor;
+  String? evento;
+  String? image;
+  String? video;
+  String? audio;
+  DateTime? dataValidade;
+  int? visualizacoes;
+  List<ComentariosModel>? comentarios;
 
   ArtigosModel(
       {this.documentID,
@@ -53,7 +53,7 @@ class ArtigosModel {
     if (json['comentarios'] != null) {
       comentarios = [];
       json['comentarios'].forEach((v) {
-        comentarios.add(new ComentariosModel.fromJson(v));
+        comentarios!.add(new ComentariosModel.fromJson(v));
       });
     }
   }
@@ -111,7 +111,7 @@ class ArtigosModel {
     data['data_validade'] = this.dataValidade;
     data['visualizacoes'] = this.visualizacoes;
     if (this.comentarios != null) {
-      data['comentarios'] = this.comentarios.map((v) => v.toJson()).toList();
+      data['comentarios'] = this.comentarios!.map((v) => v.toJson()).toList();
     }
     return data;
   }

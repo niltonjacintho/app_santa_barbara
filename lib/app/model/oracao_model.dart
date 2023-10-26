@@ -1,5 +1,5 @@
 class OracoesModel {
-  List<Grupo> grupo;
+  List<Grupo>? grupo;
 
   OracoesModel({this.grupo});
 
@@ -8,7 +8,7 @@ class OracoesModel {
       grupo = [];
       
       json['grupo'].forEach((v) {
-        grupo.add(new Grupo.fromJson(v));
+        grupo!.add(new Grupo.fromJson(v));
       });
     }
   }
@@ -16,17 +16,17 @@ class OracoesModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.grupo != null) {
-      data['grupo'] = this.grupo.map((v) => v.toJson()).toList();
+      data['grupo'] = this.grupo!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class Grupo {
-  String id;
-  String nome;
-  String url;
-  List<Oracoes> oracoes;
+  String? id;
+  String? nome;
+  String? url;
+  List<Oracoes>? oracoes;
 
   Grupo({this.id, this.nome, this.url, this.oracoes});
 
@@ -37,7 +37,7 @@ class Grupo {
     if (json['oracoes'] != null) {
       oracoes =[];
       json['oracoes'].forEach((v) {
-        oracoes.add(new Oracoes.fromJson(v));
+        oracoes!.add(new Oracoes.fromJson(v));
       });
     }
   }
@@ -48,16 +48,16 @@ class Grupo {
     data['nome'] = this.nome;
     data['url'] = this.url;
     if (this.oracoes != null) {
-      data['oracoes'] = this.oracoes.map((v) => v.toJson()).toList();
+      data['oracoes'] = this.oracoes!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class Oracoes {
-  String id;
-  String titulo;
-  String texto;
+  String? id;
+  String? titulo;
+  String? texto;
 
   Oracoes({this.id, this.titulo, this.texto});
 

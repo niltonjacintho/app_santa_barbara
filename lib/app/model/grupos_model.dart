@@ -2,10 +2,10 @@
 // import 'package:santabarbara/app/models/comentarios_model.dart';
 
 class Grupos {
-  String id;
-  String titulo;
-  int value;
-  String cor;
+  String? id;
+  String? titulo;
+  int? value;
+  String? cor;
 
   Grupos({this.id, this.titulo, this.value, this.cor});
 

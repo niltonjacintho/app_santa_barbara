@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class OpcoesMenu {
-  String image;
-  String titulo;
-  String subtitulo;
-  String destino;
-  int grupo;
-  int ordem;
-  Color cardColor;
-  Color textColor;
+  String? image;
+  String? titulo;
+  String? subtitulo;
+  String? destino;
+  int? grupo;
+  int? ordem;
+  Color? cardColor;
+  Color? textColor;
   OpcoesMenu({
     this.image,
     this.titulo,

@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:app2021/app/modules/quiz/controllers/quiz_controller.dart';
-
+import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
 class QuizFinalPage extends StatefulWidget {
   final String title;
-  const QuizFinalPage({Key key, this.title = "QuizFinal"}) : super(key: key);
+  const QuizFinalPage({required Key key, this.title = "QuizFinal"})
+      : super(key: key);
 
   @override
   _QuizFinalPageState createState() => _QuizFinalPageState();
@@ -19,6 +20,7 @@ class _QuizFinalPageState extends State<QuizFinalPage> {
 
   @override
   Widget build(BuildContext context) {
+    Key key = ValueKey('');
     return new WillPopScope(
       onWillPop: () async {
         Get.toNamed('/home');
@@ -69,13 +71,13 @@ class _QuizFinalPageState extends State<QuizFinalPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   quadroResumo('Acertos', quizController.qtdAcertos.toString(),
-                      Colors.green[900],
+                      Colors.green[900]!,
                       corFonte: Colors.white),
                   quadroResumo(
                       'Erros',
                       (quizController.qtdPerguntas - quizController.qtdAcertos)
                           .toString(),
-                      Colors.red[900],
+                      Colors.red[900]!,
                       corFonte: Colors.white),
                 ],
               ),
@@ -88,12 +90,12 @@ class _QuizFinalPageState extends State<QuizFinalPage> {
                   quadroResumo(
                       'Seus Pontos',
                       (quizController.pontuacaoFinal).toStringAsFixed(1),
-                      Colors.red[900],
+                      Colors.red[900]!,
                       corFonte: Colors.white),
                   quadroResumo(
                       'Seus Tempo',
                       (quizController.getFormatTempoCorrido()),
-                      Colors.yellow[900],
+                      Colors.yellow[900]!,
                       corFonte: Colors.white),
                 ],
               ),
@@ -112,7 +114,9 @@ class _QuizFinalPageState extends State<QuizFinalPage> {
                   ),
                   child: GestureDetector(
                     onTap: () {
-                      Get.to(QuizTopView());
+                      Get.to(QuizTopView(
+                        key: key,
+                      ));
                     },
                     child: Center(
                       child: Text(

@@ -24,38 +24,14 @@ class ParocosView extends GetView<ParocosController> {
           }),
       body: StreamBuilder<QuerySnapshot>(
           stream: myStream,
-          builder: (context, snapshot) {
-            List<Widget> children;
+          builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasError) {
-              children = <Widget>[
-                Icon(
-                  Icons.error_outline,
-                  color: Colors.red,
-                  size: 60,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: Text(
-                      'Erro ao recuperar a informação \ndos párocos: ${snapshot.error}'),
-                )
-              ];
+              return Column(
+                children: [Text('error')],
+              );
             } else {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
-                  children = <Widget>[
-                    Icon(
-                      Icons.info,
-                      color: Colors.blue,
-                      size: 60,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(top: 16),
-                      child: Center(
-                        child: Text(
-                            'Não encontrei informações /ndos nossos párocos'),
-                      ),
-                    ),
-                  ];
                   break;
                 case ConnectionState.waiting:
                   return Column(children: <Widget>[
@@ -69,7 +45,6 @@ class ParocosView extends GetView<ParocosController> {
                       child: Text('Recuperando informações.'),
                     )
                   ]);
-                  break;
                 case ConnectionState.done:
                   return Column(children: <Widget>[
                     Icon(
@@ -82,7 +57,6 @@ class ParocosView extends GetView<ParocosController> {
                       child: Text('\$${snapshot.data} (closed)'),
                     )
                   ]);
-                  break;
                 case ConnectionState.active:
                   final int messageCount = snapshot.data.docs.length;
                   parocosController.loadKeys(messageCount);
@@ -115,10 +89,11 @@ class ParocosView extends GetView<ParocosController> {
                                           child: GestureDetector(
                                             onTap: () => {
                                               parocosController
-                                                  .listKey[i].currentState
+                                                  .listKey[i].currentState!
                                                   .toggleCard(),
                                             },
-                                            child: snapshot.data.docs[i]['imagem'] !=
+                                            child: snapshot.data.docs[i]
+                                                        ['imagem'] !=
                                                     ''
                                                 ? Image.network(snapshot
                                                     .data.docs[i]['imagem'])
@@ -148,7 +123,8 @@ class ParocosView extends GetView<ParocosController> {
                                                         FontWeight.bold),
                                               ),
                                               Text(
-                                                snapshot.data.docs[i]['subtitulo'],
+                                                snapshot.data.docs[i]
+                                                    ['subtitulo'],
                                                 style: TextStyle(
                                                     fontSize: 14,
                                                     fontWeight:
@@ -166,10 +142,11 @@ class ParocosView extends GetView<ParocosController> {
                                     child: GestureDetector(
                                       onTap: () {
                                         parocosController
-                                            .listKey[i].currentState
+                                            .listKey[i].currentState!
                                             .toggleCard();
                                       },
-                                      child: Text(snapshot.data.docs[i]['conteudo']),
+                                      child: Text(
+                                          snapshot.data.docs[i]['conteudo']),
                                     ),
                                   ),
                                 ),
@@ -181,8 +158,10 @@ class ParocosView extends GetView<ParocosController> {
                       ),
                     ),
                   );
-                  break;
+                default:
+                  return Text('error');
               }
+              return Text('erro indefinido');
             }
           }),
     );

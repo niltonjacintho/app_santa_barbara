@@ -1,17 +1,17 @@
 class Igreja {
-  String id;
-  String nome;
-  String forania;
-  String nascimento;
-  String paroco;
-  String vigario;
-  String diacono;
-  String endereco;
-  String endereco2;
-  String telefones;
-  double lat;
-  double long;
-  List<Capelas> capelas;
+  String? id;
+  String? nome;
+  String? forania;
+  String? nascimento;
+  String? paroco;
+  String? vigario;
+  String? diacono;
+  String? endereco;
+  String? endereco2;
+  String? telefones;
+  double? lat;
+  double? long;
+  List<Capelas>? capelas;
 
   Igreja(
       {this.id,
@@ -44,7 +44,7 @@ class Igreja {
     if (json['capelas'] != null) {
       capelas = [];
       json['capelas'].forEach((v) {
-        capelas.add(new Capelas.fromJson(v));
+        capelas!.add(new Capelas.fromJson(v));
       });
     }
   }
@@ -64,19 +64,19 @@ class Igreja {
     data['lat'] = this.lat;
     data['long'] = this.long;
     if (this.capelas != null) {
-      data['capelas'] = this.capelas.map((v) => v.toJson()).toList();
+      data['capelas'] = this.capelas!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class Capelas {
-  String nome;
-  String endereco;
-  String endereco2;
-  String telefone;
-  double lat;
-  double long;
+  String? nome;
+  String? endereco;
+  String? endereco2;
+  String? telefone;
+  double? lat;
+  double? long;
 
   Capelas(
       {this.nome,

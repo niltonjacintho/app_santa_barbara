@@ -8,7 +8,7 @@ import 'package:app2021/app/modules/artigos/controllers/artigos_controller.dart'
 
 class ArtigosView extends StatefulWidget {
   final String title;
-  const ArtigosView({Key key, this.title = "Login"}) : super(key: key);
+  const ArtigosView({required Key key, this.title = "Login"}) : super(key: key);
 
   @override
   _ArtigosViewState createState() => _ArtigosViewState();
@@ -19,7 +19,7 @@ class _ArtigosViewState extends State<ArtigosView> {
   StylesController stylesController = Get.put(StylesController());
   PageController _pageController = PageController();
   UtilsController _utilsController = Get.put(UtilsController());
-  Stream<QuerySnapshot> streamArtigos;
+  late Stream<QuerySnapshot> streamArtigos;
   @override
   void dispose() {
     _pageController.dispose();
@@ -149,7 +149,7 @@ class _ArtigosViewState extends State<ArtigosView> {
           .collection('artigos')
           .where('grupo', isEqualTo: grupo)
           .snapshots(), //  streamArtigos, // myStream,
-      builder: (context, snapshot) {
+      builder: (context,AsyncSnapshot snapshot) {
         if (!snapshot.hasData) {
           return Center(
             child: CircularProgressIndicator(),
@@ -163,7 +163,7 @@ class _ArtigosViewState extends State<ArtigosView> {
         return ListView.builder(
             itemCount: snapshot.data.docs.length,
             itemBuilder: (context, index) {
-              DocumentSnapshot doc = snapshot.data.docs[index];
+              QueryDocumentSnapshot doc = snapshot.data.docs[index];
               return Container(
                 color: Colors.transparent,
                 //child: Expanded(

@@ -1,7 +1,6 @@
 import 'package:app2021/app/modules/paroquias/controllers/paroquias_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 // ignore: must_be_immutable
@@ -9,7 +8,7 @@ class ParoquiasMapaView extends GetView {
   String title = '';
   double lat = 0;
   RxDouble long = 0.0.obs;
-  GoogleMapController mapController;
+  late GoogleMapController mapController;
   ParoquiasController paroquiasController = Get.put(ParoquiasController());
   Set<Marker> markers = new Set<Marker>();
   _onMapCreated(GoogleMapController controler) {
@@ -24,10 +23,8 @@ class ParoquiasMapaView extends GetView {
       ),
     );
     // setState(() {
-    if (paroquiasController.paroquiaAtiva.long != null) {
-      markers.add(marker);
-      long.value = marker.position.longitude;
-    }
+    markers.add(marker);
+    long.value = marker.position.longitude;
     //  });
   }
 
@@ -57,22 +54,3 @@ class ParoquiasMapaView extends GetView {
     );
   }
 }
-
-// class ParoquiasMapaView extends GetView {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('ParoquiasMapaView'),
-//         centerTitle: true,
-//       ),
-//       body: Center(
-//         child: Text(
-//           'ParoquiasMapaView is working', 
-//           style: TextStyle(fontSize:20),
-//         ),
-//       ),
-//     );
-//   }
-// }
-  

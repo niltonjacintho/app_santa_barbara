@@ -9,7 +9,9 @@ class ParocosController extends GetxController {
   final count = 0.obs;
   var padreId = 0.obs;
   @override
-  void onInit() {}
+  void onInit() {
+    super.onInit();
+  }
 
   @override
   void onReady() {}
@@ -19,14 +21,14 @@ class ParocosController extends GetxController {
 
   void increment() => count.value++;
 
-  List<String> _images;
+  late List<String> _images;
   List<String> get images => _images;
 
   // set images(List<String> value) => _images = value;
 
   List<String> get getimages => _images;
 
-  List<GlobalKey<FlipCardState>> listKey;
+  late List<GlobalKey<FlipCardState>> listKey;
 
   loadKeys(int qtd) {
     listKey = [];

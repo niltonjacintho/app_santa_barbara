@@ -9,7 +9,7 @@ import 'package:get_storage/get_storage.dart';
 
   List<Grupos> lista = [];
 
-  Oracoes oracao;
+  late Oracoes oracao;
   
   int value = 0;
 

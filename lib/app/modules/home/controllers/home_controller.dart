@@ -40,7 +40,7 @@ class HomeController extends GetxController {
       ordem: 09,
       destino: Routes.VELA,
       grupo: 0,
-      cardColor: Colors.red[900],
+      cardColor: Colors.red[900]!,
       textColor: Colors.white,
       subtitulo: ' ..',
     ));
@@ -50,7 +50,7 @@ class HomeController extends GetxController {
       ordem: 09,
       destino: Routes.PAROCOS,
       grupo: 0,
-      cardColor: Colors.red[900],
+      cardColor: Colors.red[900]!,
       textColor: Colors.white,
       subtitulo: 'Venha conhecer os párocos que fazem parte de nossa história',
     ));
@@ -61,7 +61,7 @@ class HomeController extends GetxController {
         ordem: 12,
         destino: Routes.PAROQUIAS,
         grupo: 0,
-        cardColor: Colors.green[900],
+        cardColor: Colors.green[900]!,
         textColor: Colors.white,
         subtitulo: ''));
 

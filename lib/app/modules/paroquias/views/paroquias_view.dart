@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:app2021/app/controllers/utils_controller.dart';
 import 'package:app2021/app/modules/artigos/controllers/artigos_controller.dart';
 import 'package:app2021/app/modules/paroquias/controllers/paroquias_controller.dart';
@@ -6,10 +8,10 @@ import 'package:app2021/app/modules/paroquias/views/paroquias_mapa_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:slide_popup_dialog/slide_popup_dialog.dart' as slideDialog;
+import 'package:slide_popup_dialog_null_safety/slide_popup_dialog.dart' as slideDialog;
+
 
 class ParoquiasView extends GetView<ParoquiasController> {
   //use 'controller' variable to access controller
@@ -85,13 +87,13 @@ class ParoquiasView extends GetView<ParoquiasController> {
                   .collection('paroquias')
                   .orderBy('nome')
                   .snapshots(),
-              builder: (context, snap) {
+              builder: (context, AsyncSnapshot snap) {
                 return SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
                       return Obx(
                         () => util.existeTexto(
-                                snap.data.docs[index]['nome'].toString(),
+                                snap.data!.docs[index]['nome'].toString(),
                                 controller.filtro.value)
                             ? Container(
                                 height: 280,

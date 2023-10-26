@@ -1,8 +1,11 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:app2021/app/controllers/auth_controller.dart';
 import 'package:app2021/app/controllers/utils_controller.dart';
 import 'package:app2021/app/model/quizRank_model.dart';
 import 'package:app2021/app/model/quiz_model.dart';
 import 'package:app2021/app/services/db_service.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:async';
 import 'dart:math';
@@ -21,6 +24,7 @@ class QuizController extends GetxController {
 
   @override
   void onInit() {
+    super.onInit();
     getTopicos().then((value) => null);
   }
 
@@ -80,7 +84,7 @@ class QuizController extends GetxController {
 
   bool stopCount = false;
 
-  initQuiz({int tempo}) {
+  initQuiz({required int tempo}) {
     tempoRestante.value = tempo == null ? tempoPadrao : tempo;
     stopCount = false;
     _contPerguntas = 0;
@@ -117,8 +121,8 @@ class QuizController extends GetxController {
     q.acertos = qtdAcertos;
     q.erros = qtdPerguntas - qtdAcertos;
     q.data = DateTime.now();
-    q.nome = authController.user.user.displayName;
-    q.email = authController.user.user.email;
+    q.nome = authController.user.user!.displayName!;
+    q.email = authController.user.user!.email!;
     q.topico = topicoAtual.nome;
     dbService.salvarObjeto(q, 'quizrank');
   }
@@ -277,7 +281,7 @@ class QuizController extends GetxController {
     listaUrls.forEach((element) {
       BaseTopicos b = new BaseTopicos(
           nome: element.id,
-          cor: null,
+          cor: Colors.black26,
           id: element.id.trim().replaceAll(' ', '').toLowerCase());
       //   listaTopicos.add(b);
       DbService().salvarObjeto(b, 'quiztopicos');
@@ -385,7 +389,7 @@ class QuizController extends GetxController {
         tempRespostas = temp;
         print(tempRespostas); //
         //pergar resposta certa
-        String r;
+        String r = '';
         try {
           r = html.substring(
               html.toLowerCase().indexOf('<div class="hc-pt'.toLowerCase()),
@@ -438,7 +442,7 @@ class QuizController extends GetxController {
     desafio = new Desafios();
     desafio.data = new DateTime.now();
     desafio.finalizado = false;
-    desafio.email = _authController.user.user.email;
+    desafio.email = _authController.user.user!.email!;
     desafio.desafioPerguntas = [];
     if (listaPerguntas.length > 0) {
       listaPerguntas.forEach((element) {

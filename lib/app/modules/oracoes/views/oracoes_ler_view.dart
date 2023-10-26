@@ -1,8 +1,9 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:app2021/app/controllers/utils_controller.dart';
 import 'package:app2021/app/modules/oracoes/controllers/oracoes_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 class OracoesLerView extends GetView {
 //  BaseStore baseStore = Modular.get();

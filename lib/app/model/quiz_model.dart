@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class QuizDB {
-  QuizDb quizDb;
+  QuizDb? quizDb;
 
-  QuizDB({this.quizDb});
+  QuizDB({required this.quizDb});
 
   QuizDB.fromJson(Map<String, dynamic> json) {
     quizDb =
@@ -13,37 +13,37 @@ class QuizDB {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.quizDb != null) {
-      data['quizDb'] = this.quizDb.toJson();
+      data['quizDb'] = this.quizDb!.toJson();
     }
     return data;
   }
 }
 
 class QuizDb {
-  List<BaseTopicos> baseTopicos;
-  List<Quiz> quiz;
-  List<Desafios> desafios;
-  BasePerguntas basePerguntas;
+  List<BaseTopicos>? baseTopicos;
+  List<Quiz>? quiz;
+  List<Desafios>? desafios;
+  BasePerguntas? basePerguntas;
 
-  QuizDb({this.baseTopicos, this.quiz, this.desafios, this.basePerguntas});
+  QuizDb({required this.baseTopicos, required this.quiz, required this.desafios, required this.basePerguntas});
 
   QuizDb.fromJson(Map<String, dynamic> json) {
     if (json['baseTopicos'] != null) {
       baseTopicos = [];
       json['baseTopicos'].forEach((v) {
-        baseTopicos.add(new BaseTopicos.fromJson(v));
+        baseTopicos!.add(new BaseTopicos.fromJson(v));
       });
     }
     if (json['quiz'] != null) {
       quiz = [];
       json['quiz'].forEach((v) {
-        quiz.add(new Quiz.fromJson(v));
+        quiz!.add(new Quiz.fromJson(v));
       });
     }
     if (json['desafios'] != null) {
       desafios = [];
       json['desafios'].forEach((v) {
-        desafios.add(new Desafios.fromJson(v));
+        desafios!.add(new Desafios.fromJson(v));
       });
     }
     basePerguntas = json['basePerguntas'] != null
@@ -54,29 +54,29 @@ class QuizDb {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.baseTopicos != null) {
-      data['baseTopicos'] = this.baseTopicos.map((v) => v.toJson()).toList();
+      data['baseTopicos'] = this.baseTopicos!.map((v) => v.toJson()).toList();
     }
     if (this.quiz != null) {
-      data['quiz'] = this.quiz.map((v) => v.toJson()).toList();
+      data['quiz'] = this.quiz!.map((v) => v.toJson()).toList();
     }
     if (this.desafios != null) {
-      data['desafios'] = this.desafios.map((v) => v.toJson()).toList();
+      data['desafios'] = this.desafios!.map((v) => v.toJson()).toList();
     }
     if (this.basePerguntas != null) {
-      data['basePerguntas'] = this.basePerguntas.toJson();
+      data['basePerguntas'] = this.basePerguntas!.toJson();
     }
     return data;
   }
 }
 
 class BaseTopicos {
-  String id;
-  String nome;
-  Color cor;
+  String id = '';
+  String nome = '';
+  Color cor = Colors.black;
 
   get getIdBase => nome.trim().replaceAll(' ', '').toLowerCase();
 
-  BaseTopicos({this.id, this.nome, this.cor});
+  BaseTopicos({required this.id, required this.nome, required this.cor});
 
   BaseTopicos.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -94,19 +94,19 @@ class BaseTopicos {
 }
 
 class Quiz {
-  String id;
-  String titulo;
-  List<QuizTopico> quizTopicos;
-  String recomendacoes;
-  String qtdperguntas;
-  List<QuizPerguntas> quizPerguntas;
+  String id = '';
+  String titulo = '';
+  List<QuizTopico>? quizTopicos = [];
+  String recomendacoes = '';
+  String qtdperguntas = '';
+  List<QuizPerguntas>? quizPerguntas = [];
 
   Quiz(
-      {this.id,
-      this.titulo,
+      {this.id = '',
+      this.titulo = '',
       this.quizTopicos,
-      this.recomendacoes,
-      this.qtdperguntas,
+      this.recomendacoes = '',
+      this.qtdperguntas = '',
       this.quizPerguntas});
 
   Quiz.fromJson(Map<String, dynamic> json) {
@@ -115,7 +115,7 @@ class Quiz {
     if (json['quizTopico'] != null) {
       quizTopicos = [];
       json['quizTopico'].forEach((v) {
-        quizTopicos.add(new QuizTopico.fromJson(v));
+        quizTopicos!.add(new QuizTopico.fromJson(v));
       });
     }
     recomendacoes = json['recomendacoes'];
@@ -123,7 +123,7 @@ class Quiz {
     if (json['quizPerguntas'] != null) {
       quizPerguntas =[];
       json['quizPerguntas'].forEach((v) {
-        quizPerguntas.add(new QuizPerguntas.fromJson(v));
+        quizPerguntas!.add(new QuizPerguntas.fromJson(v));
       });
     }
   }
@@ -133,20 +133,20 @@ class Quiz {
     data['id'] = this.id;
     data['titulo'] = this.titulo;
     if (this.quizTopicos != null) {
-      data['quizTopico'] = this.quizTopicos.map((v) => v.toJson()).toList();
+      data['quizTopico'] = this.quizTopicos!.map((v) => v.toJson()).toList();
     }
     data['recomendacoes'] = this.recomendacoes;
     data['qtdperguntas'] = this.qtdperguntas;
     if (this.quizPerguntas != null) {
       data['quizPerguntas'] =
-          this.quizPerguntas.map((v) => v.toJson()).toList();
+          this.quizPerguntas!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class QuizTopico {
-  String idTopico;
+  String? idTopico;
 
   QuizTopico({this.idTopico});
 
@@ -162,7 +162,7 @@ class QuizTopico {
 }
 
 class QuizPerguntas {
-  String id;
+  String? id;
 
   QuizPerguntas({this.id});
 
@@ -178,14 +178,14 @@ class QuizPerguntas {
 }
 
 class Desafios {
-  String id;
-  String idQuiz;
-  bool finalizado;
-  DateTime data;
-  String email;
-  int acertos;
-  int tempo;
-  List<DesafioPerguntas> desafioPerguntas;
+  String? id;
+  String? idQuiz;
+  bool? finalizado;
+  DateTime? data;
+  String? email;
+  int? acertos;
+  int? tempo;
+  List<DesafioPerguntas>? desafioPerguntas;
 
   Desafios(
       {this.id,
@@ -208,7 +208,7 @@ class Desafios {
     if (json['desafioPerguntas'] != null) {
       desafioPerguntas = [];
       json['desafioPerguntas'].forEach((v) {
-        desafioPerguntas.add(new DesafioPerguntas.fromJson(v));
+        desafioPerguntas!.add(new DesafioPerguntas.fromJson(v));
       });
     }
   }
@@ -224,15 +224,15 @@ class Desafios {
     data['tempo'] = this.tempo;
     if (this.desafioPerguntas != null) {
       data['desafioPerguntas'] =
-          this.desafioPerguntas.map((v) => v.toJson()).toList();
+          this.desafioPerguntas!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class DesafioPerguntas {
-  String id;
-  bool acertou;
+  String? id;
+  bool? acertou;
 
   DesafioPerguntas({this.id, this.acertou});
 
@@ -250,10 +250,10 @@ class DesafioPerguntas {
 }
 
 class BasePerguntas {
-  String id;
-  String idTopico;
-  String pergunta;
-  List<PerguntasRespostas> perguntasRespostas;
+  String? id;
+  String? idTopico;
+  String? pergunta;
+  List<PerguntasRespostas>? perguntasRespostas;
 
   BasePerguntas(
       {this.id, this.idTopico, this.pergunta, this.perguntasRespostas});
@@ -265,7 +265,7 @@ class BasePerguntas {
     if (json['perguntasRespostas'] != null) {
       perguntasRespostas = [];
       json['perguntasRespostas'].forEach((v) {
-        perguntasRespostas.add(new PerguntasRespostas.fromJson(v));
+        perguntasRespostas!.add(new PerguntasRespostas.fromJson(v));
       });
     }
   }
@@ -277,17 +277,17 @@ class BasePerguntas {
     data['pergunta'] = this.pergunta;
     if (this.perguntasRespostas != null) {
       data['perguntasRespostas'] =
-          this.perguntasRespostas.map((v) => v.toJson()).toList();
+          this.perguntasRespostas!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class PerguntasRespostas {
-  String id;
-  int sequencia;
-  bool respostacerta;
-  String respostatexto;
+  String? id;
+  int? sequencia;
+  bool? respostacerta;
+  String? respostatexto;
 
   PerguntasRespostas(
       {this.id, this.sequencia, this.respostacerta, this.respostatexto});

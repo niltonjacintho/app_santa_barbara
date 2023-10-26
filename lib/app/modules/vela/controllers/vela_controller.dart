@@ -50,7 +50,7 @@ class VelaController extends GetxController {
       velaAtual.id = uuid.v4();
     }
     DocumentReference reference =
-        FirebaseFirestore.instance.doc("vela_virtual/" + velaAtual.id);
+        FirebaseFirestore.instance.doc("vela_virtual/" + velaAtual.id!);
     // ignore: unnecessary_null_comparison
     velaAtual.dataInclusao = velaAtual.dataInclusao == null
         ? DateTime.now()
@@ -64,7 +64,7 @@ class VelaController extends GetxController {
     velaAtual.minutosrestantes = utilsController.tempoVelaAcesa;
     reference
         .set(velaAtual.toJson())
-        .then((result) => {getVelasAcesas(velaAtual.solicitanteemail)})
+        .then((result) => {getVelasAcesas(velaAtual.solicitanteemail!)})
         .catchError((err) => print('ERROR $err'));
   }
 

@@ -1,22 +1,22 @@
 class QuizRankModel {
-  String id;
-  DateTime data;
-  String email;
-  String nome;
-  int acertos;
-  int erros;
-  double pontos;
-  String topico;
+  String? id;
+  DateTime? data;
+  String? email;
+  String? nome;
+  int? acertos = 0;
+  int? erros;
+  double? pontos;
+  String? topico;
 
   QuizRankModel(
-      {String id,
-      DateTime data,
-      String email,
-      String nome,
-      int acertos,
-      int erros,
-      double pontos,
-      String topico}) {
+      {String id='',
+      DateTime? data,
+      String email='',
+      String nome='',
+      int acertos = 0,
+      int erros = 0,
+      double pontos = 0,
+      String topico=''}) {
     this.id = id;
     this.data = data;
     this.email = email;
