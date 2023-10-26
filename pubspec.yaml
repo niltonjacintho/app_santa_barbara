@@ -53,6 +53,7 @@ dependencies:
   slide_popup_dialog_null_safety: ^1.0.0
   google_maps_flutter: ^2.0.6
   flip_drawer: ^1.0.3
+  form_builder_validators: ^9.1.0
 
 dev_dependencies:
   flutter_test:

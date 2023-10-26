@@ -1,7 +1,10 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:app2021/app/controllers/styles_controller.dart';
 import 'package:app2021/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 import 'package:app2021/app/modules/vela/controllers/vela_controller.dart';
 
@@ -14,7 +17,6 @@ class VelaView extends GetView<VelaController> {
 
   @override
   Widget build(BuildContext context) {
-    var _selectedIndex = 0;
     velaController.getTiposPedidos();
     velaController.novaVela();
     return Scaffold(
@@ -42,11 +44,10 @@ class VelaView extends GetView<VelaController> {
                         labelText: "Você esta pedindo para quem?",
                         labelStyle: stylesController.formLabel),
                     onChanged: (value) {
-                      velaController.velaAtual.destinatario = value;
+                      velaController.velaAtual.destinatario = value!;
                     },
                     validator: FormBuilderValidators.compose([
                       FormBuilderValidators.required(
-                        context,
                         errorText: 'Por favor, diga-nos para quem é o pedido',
                       ),
                     ]),
@@ -65,7 +66,7 @@ class VelaView extends GetView<VelaController> {
                       labelStyle: stylesController.formLabel,
                     ),
                     onChanged: (value) {
-                      velaController.velaAtual.texto = value;
+                      velaController.velaAtual.texto = value!;
                     },
                     valueTransformer: (text) {
                       return text == null ? null : num.tryParse(text);
@@ -90,7 +91,7 @@ class VelaView extends GetView<VelaController> {
                   ),
                   icon: Icon(Icons.star),
                   onPressed: () async {
-                    if (_fbKey.currentState.saveAndValidate()) {
+                    if (_fbKey.currentState!.saveAndValidate()) {
                       await velaController.gravar();
                       Get.toNamed(Routes.VELAACESA);
                     }

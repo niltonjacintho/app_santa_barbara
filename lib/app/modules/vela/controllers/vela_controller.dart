@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_return_type_for_catch_error
+
 import 'package:app2021/app/controllers/auth_controller.dart';
 import 'package:app2021/app/controllers/utils_controller.dart';
 import 'package:app2021/app/model/vela_model.dart';
@@ -11,7 +13,9 @@ class VelaController extends GetxController {
   final count = 0.obs;
 
   @override
-  void onInit() {}
+  void onInit() {
+    super.onInit();
+  }
 
   @override
   void onReady() {}
@@ -42,18 +46,19 @@ class VelaController extends GetxController {
   }
 
   gravar() async {
-    if (velaAtual.id == null || velaAtual.id == '') {
+    if (velaAtual.id == '') {
       velaAtual.id = uuid.v4();
     }
     DocumentReference reference =
         FirebaseFirestore.instance.doc("vela_virtual/" + velaAtual.id);
+    // ignore: unnecessary_null_comparison
     velaAtual.dataInclusao = velaAtual.dataInclusao == null
         ? DateTime.now()
         : velaAtual.dataInclusao;
     velaAtual.solicitanteemail =
-        authController.user.additionalUserInfo.profile["email"];
+        authController.user.additionalUserInfo!.profile!["email"];
     velaAtual.solicitantenome =
-        authController.user.additionalUserInfo.profile["name"];
+        authController.user.additionalUserInfo!.profile!["name"];
     velaAtual.dataAlteracao = DateTime.now();
     velaAtual.data = DateTime.now();
     velaAtual.minutosrestantes = utilsController.tempoVelaAcesa;
@@ -64,7 +69,7 @@ class VelaController extends GetxController {
   }
 
   Future<List> getVelasAcesas(String email) async {
-    velasAcesas = new List();
+    velasAcesas = List.empty();
     qtdVelasAcesas = 0;
     await for (var snapshot in FirebaseFirestore.instance
         .collection('vela_virtual')

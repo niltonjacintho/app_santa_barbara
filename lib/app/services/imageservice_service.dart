@@ -1,16 +1,17 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path/path.dart' as Path;
 import 'package:image_picker/image_picker.dart';
 
 class ImageserviceService  {
-  @override
   void dispose() {}
 
-  File _imageFile;
+  late File _imageFile;
   String _uploadedFileURL = ''; //new Uri();
 
-  File get imageName {
+  File? get imageName {
     print('IMAGE FILE ');
     print(_imageFile == null);
     if (_imageFile == null) {

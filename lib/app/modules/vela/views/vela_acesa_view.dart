@@ -1,9 +1,6 @@
 import 'package:app2021/app/controllers/styles_controller.dart';
 import 'package:app2021/app/modules/home/views/home_view.dart';
-import 'package:app2021/app/routes/app_pages.dart';
-import 'package:flutter_gifimage/flutter_gifimage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart';
 
 void main() => runApp(VelaAcesaView());
@@ -15,13 +12,11 @@ class VelaAcesaView extends StatefulWidget {
 
 class _VelaAcesaViewState extends State<VelaAcesaView>
     with TickerProviderStateMixin {
-  GifController controller;
   StylesController stylesController = Get.put(StylesController());
 
   @override
   void initState() {
     super.initState();
-    controller = GifController(vsync: this);
   }
 
   @override
@@ -64,6 +59,5 @@ class _VelaAcesaViewState extends State<VelaAcesaView>
   @override
   void dispose() {
     super.dispose();
-    controller.dispose();
   }
 }
